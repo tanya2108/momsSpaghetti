@@ -1,4 +1,9 @@
 // query selector variables go here 👇
+var randTitle = document.querySelector('.poster-title')
+
+var randPoster = document.querySelector('.poster-img')
+
+var randQuote = document.querySelector('.poster-quote')
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -109,3 +114,6 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
+randTitle.innerText = titles[getRandomIndex(titles)]
+randQuote.innerText = quotes[getRandomIndex(quotes)]
+randPoster.src = images[getRandomIndex(images)]
