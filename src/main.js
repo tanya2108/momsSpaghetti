@@ -1,11 +1,48 @@
 // query selector variables go here 👇
-var randomTitle = document.querySelector('.poster-title')
+var randomTitle = document.querySelector('.poster-title');
 
-var randomPoster = document.querySelector('.poster-img')
+var randomPoster = document.querySelector('.poster-img');
 
-var randomQuote = document.querySelector('.poster-quote')
+var randomQuote = document.querySelector('.poster-quote');
+
+// vvvvvvvvv Buttons on Hompage vvvvvvvvv //
+
+var saveThisButton = document.querySelector('.save-poster');
+
+var showSavedButton = document.querySelector('.show-saved');
 
 var randomPosterButton = document.querySelector('.show-random');
+
+var makeOwnButton = document.querySelector('.show-form');
+
+// vvvvvvvvv Buttons for Create Your Own vvvvvvvvv //
+
+var showMyPosterButton = document.querySelector('make-poster');
+
+var takeMeBackButton = document.querySelector('.show-main');
+
+// vvvvvvvvv Buttons for Saved Posters vvvvvvvvv
+
+var backToMainButton = document.querySelector('.back-to-main');
+
+// vvvvvvvvv Homepage Elements vvvvvvvvv //
+
+var mainPosterArea = ('.main-poster');
+
+var mainPosterImage = ('.poster-image');
+
+var posterFormArea = ('.poster-form');
+
+var savedPostersArea = ('.saved-posters');
+
+var savedPostersGrid = ('.saved-posters-grid');
+
+var imageInput = document.querySelector('#poster-image-url');
+
+var titleInput = document.querySelector('#poster-title');
+
+var quoteInput = document.querySelector('#poster-quote');
+
 
 // we've provided you with some data to work with 👇
 var images = [
@@ -105,11 +142,33 @@ var quotes = [
   "Each person must live their life as a model for others.",
   "A champion is defined not by their wins but by how they can recover when they fall."
 ];
+
 var savedPosters = [];
-var currentPoster;
+/*
+function makeYourOwn() {
+  getElementsByName('#form.png')
+};
+*/
+var newImage = imageInput.value;
+var newTitle = titleInput.value;
+var newQuote = quoteInput.value;
+
+};
+var currentImage = new Poster();
+var currentTitle = new Poster();
+var currentQuote = new Poster();
+
 
 // event listeners go here 👇
-randomPosterButton.addEventListener('click', changePoster)
+randomPosterButton.addEventListener('click', changePoster);
+
+/*
+showSavedButton.addEventListener('click', showSaved);
+
+saveThisButton.addEventListener('click', saveThis);
+
+makeOwnButton.addEventListener('click', makeOwn);
+*/
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
