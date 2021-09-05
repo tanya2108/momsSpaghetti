@@ -27,15 +27,15 @@ var backToMainButton = document.querySelector('.back-to-main');
 
 // vvvvvvvvv Homepage Elements vvvvvvvvv //
 
-var mainPosterArea = ('.main-poster');
+var mainPosterArea = document.querySelector('.main-poster');
 
-var mainPosterImage = ('.poster-image');
+var mainPosterImage = document.querySelector('.poster-image');
 
-var posterFormArea = ('.poster-form');
+var posterFormArea = document.querySelector('.poster-form');
 
-var savedPostersArea = ('.saved-posters');
+var savedPostersArea = document.querySelector('.saved-posters');
 
-var savedPostersGrid = ('.saved-posters-grid');
+var savedPostersGrid = document.querySelector('.saved-posters-grid');
 
 var imageInput = document.querySelector('#poster-image-url');
 
@@ -144,44 +144,59 @@ var quotes = [
 ];
 
 var savedPosters = [];
-/*
-function makeYourOwn() {
-  getElementsByName('#form.png')
-};
-*/
+
 var newImage = imageInput.value;
 var newTitle = titleInput.value;
 var newQuote = quoteInput.value;
 
-};
 var currentImage = new Poster();
 var currentTitle = new Poster();
 var currentQuote = new Poster();
 
 
 // event listeners go here 👇
-randomPosterButton.addEventListener('click', changePoster);
 
-/*
-showSavedButton.addEventListener('click', showSaved);
-
-saveThisButton.addEventListener('click', saveThis);
-
-makeOwnButton.addEventListener('click', makeOwn);
-*/
-
-// functions and event handlers go here 👇
-// (we've provided one for you to get you started)!
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-}
+//Iteration 0
 
 randomTitle.innerText = titles[getRandomIndex(titles)]
-randomQuote.innerText = quotes[getRandomIndex(quotes)]
+randomQuote.innerText= quotes[getRandomIndex(quotes)]
 randomPoster.src = images[getRandomIndex(images)]
+
+randomPosterButton.addEventListener('click', changePoster);
 
 function changePoster(){
   randomTitle.innerText = titles[getRandomIndex(titles)];
   randomQuote.innerText = quotes[getRandomIndex(quotes)];
   randomPoster.src = images[getRandomIndex(images)];
+}
+
+//Iteration 1
+
+showSavedButton.addEventListener('click', showSaved);
+
+function showSaved() {
+  mainPosterArea.classList.add("hidden");
+  savedPostersGrid.classList.remove("hidden");
+};
+
+saveThisButton.addEventListener('click', saveThis);
+
+function saveThis() {
+mainPosterArea.classList.add("hidden");
+savedPostersArea.classList.remove("hidden");
+};
+
+makeOwnButton.addEventListener('click', makeOwn);
+
+function makeOwn() {
+  mainPosterArea.classList.add("hidden");
+  posterFormArea.classList.remove("hidden");
+};
+
+backToMainButton.addEventLister('click', changePoster);
+
+// functions and event handlers go here 👇
+// (we've provided one for you to get you started)!
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
 }
