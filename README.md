@@ -1,22 +1,35 @@
-# Hang In There
+# Hang In There Pair Project - momsSpaghetti
 
-A boilerplate repo.
+### Collaborators
+[Johnathan M.](https://github.com/JohnathanMoore)
+[Tanya Z.](https://github.com/tanyazhuge)
 
-## Set Up
+### Code Review
+Mentor:
 
-1. One teammate: fork this repository
-2. Clone down your new, forked repo
-3. cd into the repository
-4. Open it in your text editor
-5. Add all project partners and your assigned instructor as collaborators on the repository
+###Project
+Our project: [momsSpaghetti](https://github.com/JohnathanMoore/momsSpaghetti.git)
 
-//collaborators: Johnathan, Tanya Z
+###Instructions and Rubric
 
 Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/hang-in-there.html)
 
-To view your project:
+###Info
 
-1. In your terminal, navigate to your project repo
-2. Run the command `open index.html`
+This is our first paired project in Mod1. Our goal is to write clean
+and DRY JavaScript that will manipulate the given HTML and CSS files
+to create a random poster generator. It is able to switch to three
+different views of Main, Form and Saved Poster.
 
-// testing
+####Main
+![Screen Shot 2021-09-05 at 12 47 44](https://user-images.githubusercontent.com/87670195/132139678-fc3705af-9409-4476-834a-450c52e90a60.png)
+
+
+####Form
+![Screen Shot 2021-09-05 at 12 47 54](https://user-images.githubusercontent.com/87670195/132139705-73ef65c7-d07b-481e-b66e-b045cf3db138.png)
+
+
+####Saved
+
+It should also be able to save and create new posters and delete ones that we
+no longer like. 
