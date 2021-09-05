@@ -21,6 +21,12 @@ and DRY JavaScript that will manipulate the given HTML and CSS files
 to create a random poster generator. It is able to switch to three
 different views of Main, Form and Saved Poster.
 
+### Resouces and Programs :
+teletype in Atom
+Stackoverflow
+Google
+
+
 #### Main
 ![Screen Shot 2021-09-05 at 12 47 44](https://user-images.githubusercontent.com/87670195/132139678-fc3705af-9409-4476-834a-450c52e90a60.png)
 
