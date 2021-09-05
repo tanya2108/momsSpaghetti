@@ -158,9 +158,9 @@ var currentQuote = new Poster();
 
 //Iteration 0
 
-randomTitle.innerText = titles[getRandomIndex(titles)]
-randomQuote.innerText= quotes[getRandomIndex(quotes)]
-randomPoster.src = images[getRandomIndex(images)]
+randomTitle.innerText = titles[getRandomIndex(titles)];
+randomQuote.innerText = quotes[getRandomIndex(quotes)];
+randomPoster.src = images[getRandomIndex(images)];
 
 randomPosterButton.addEventListener('click', changePoster);
 
@@ -171,21 +171,6 @@ function changePoster(){
 }
 
 //Iteration 1
-
-showSavedButton.addEventListener('click', showSaved);
-
-function showSaved() {
-  mainPosterArea.classList.add("hidden");
-  savedPostersGrid.classList.remove("hidden");
-};
-
-saveThisButton.addEventListener('click', saveThis);
-
-function saveThis() {
-mainPosterArea.classList.add("hidden");
-savedPostersArea.classList.remove("hidden");
-};
-
 makeOwnButton.addEventListener('click', makeOwn);
 
 function makeOwn() {
@@ -193,7 +178,32 @@ function makeOwn() {
   posterFormArea.classList.remove("hidden");
 };
 
-backToMainButton.addEventLister('click', changePoster);
+takeMeBackButton.addEventLister('click', showMainFromForm);
+
+function showMainFromForm(){
+  mainPosterArea.classList.remove("hidden");
+  posterFormArea.classList.add("hidden");
+};
+
+showSavedButton.addEventListener('click', showSaved);
+
+function showSaved() {
+  mainPosterArea.classList.add("hidden");
+  savedPostersArea.classList.remove("hidden");
+};
+
+backToMainButton.addEventLister('click', showMainFromSaved);
+
+function showMainFromSaved(){
+  mainPosterArea.classList.remove("hidden");
+  savedPostersArea.classList.add("hidden");
+};
+
+
+
+
+
+
 
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
