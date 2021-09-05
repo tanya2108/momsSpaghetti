@@ -21,21 +21,26 @@ var showMyPosterButton = document.querySelector('make-poster');
 
 var takeMeBackButton = document.querySelector('.show-main');
 
+
+
 // vvvvvvvvv Buttons for Saved Posters vvvvvvvvv
 
 var backToMainButton = document.querySelector('.back-to-main');
 
+function takeMeBack () {
+}
+
 // vvvvvvvvv Homepage Elements vvvvvvvvv //
 
-var mainPosterArea = ('.main-poster');
+var mainPosterArea = document.querySelector('.main-poster');
 
-var mainPosterImage = ('.poster-image');
+var mainPosterImage = document.querySelector('.poster-image');
 
-var posterFormArea = ('.poster-form');
+var posterFormArea = document.querySelector('.poster-form');
 
-var savedPostersArea = ('.saved-posters');
+var savedPostersArea = document.querySelector('.saved-posters');
 
-var savedPostersGrid = ('.saved-posters-grid');
+var savedPostersGrid =document.querySelector ('.saved-posters-grid');
 
 var imageInput = document.querySelector('#poster-image-url');
 
@@ -148,7 +153,7 @@ var savedPosters = [];
 function makeYourOwn() {
   getElementsByName('#form.png')
 };
-*/
+/*
 var newImage = imageInput.value;
 var newTitle = titleInput.value;
 var newQuote = quoteInput.value;
@@ -157,19 +162,41 @@ var newQuote = quoteInput.value;
 var currentImage = new Poster();
 var currentTitle = new Poster();
 var currentQuote = new Poster();
-
+*/
 
 // event listeners go here 👇
 randomPosterButton.addEventListener('click', changePoster);
 
-/*
+function changePoster() {
+  mainPosterArea.classList.add("hidden");
+  mainPosterArea.classList.remove("hidden");
+
+};
+
 showSavedButton.addEventListener('click', showSaved);
+
+function showSaved() {
+  mainPosterArea.classList.add("hidden");
+  savedPostersGrid.classList.remove("hidden");
+};
+
 
 saveThisButton.addEventListener('click', saveThis);
 
-makeOwnButton.addEventListener('click', makeOwn);
-*/
+function saveThis() {
+mainPosterArea.classList.add("hidden");
+savedPostersArea.classList.remove("hidden");
+};
 
+makeOwnButton.addEventListener('click', makeOwn);
+
+
+function makeOwn() {
+  mainPosterArea.classList.add("hidden");
+  posterFormArea.classList.remove("hidden");
+};
+
+backToMainButton.addEventLister('click', changePoster);
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
