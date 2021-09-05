@@ -178,7 +178,7 @@ function makeOwn() {
   posterFormArea.classList.remove("hidden");
 };
 
-takeMeBackButton.addEventLister('click', showMainFromForm);
+takeMeBackButton.addEventListener('click', showMainFromForm);
 
 function showMainFromForm(){
   mainPosterArea.classList.remove("hidden");
@@ -192,7 +192,7 @@ function showSaved() {
   savedPostersArea.classList.remove("hidden");
 };
 
-backToMainButton.addEventLister('click', showMainFromSaved);
+backToMainButton.addEventListener('click', showMainFromSaved);
 
 function showMainFromSaved(){
   mainPosterArea.classList.remove("hidden");
