@@ -27,9 +27,6 @@ var takeMeBackButton = document.querySelector('.show-main');
 
 var backToMainButton = document.querySelector('.back-to-main');
 
-function takeMeBack () {
-}
-
 // vvvvvvvvv Homepage Elements vvvvvvvvv //
 
 var mainPosterArea = document.querySelector('.main-poster');
