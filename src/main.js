@@ -1,3 +1,4 @@
+
 // query selector variables go here :point_down:
 //vvvvvvvvvv Mainpage Poster Default vvvvvvvvvv\\
 var imageMain = document.querySelector(‘.poster-img’);
@@ -124,9 +125,12 @@ var quotes = [
   “No matter what people tell you, words and ideas can change the world.“,
   “Each person must live their life as a model for others.“,
   “A champion is defined not by their wins but by how they can recover when they fall.”
+=======
 ];
+
 var savedPosters = [];
 var currentPoster;
+
 // event listeners go here :point_down:
 window.addEventListener(‘load’, setMain);
 randomButton.addEventListener(‘click’, setMain);
