@@ -1,52 +1,39 @@
+
 // query selector variables go here 👇
-var randomTitle = document.querySelector('.poster-title');
 
-var randomPoster = document.querySelector('.poster-img');
+//vvvvvvvvvv Mainpage Poster Default vvvvvvvvvv\\
+var imageMain = document.querySelector('.poster-img');
+var titleMain = document.querySelector('.poster-title');
+var quoteMain = document.querySelector('.poster-quote');
 
-var randomQuote = document.querySelector('.poster-quote');
-
-// vvvvvvvvv Buttons on Hompage vvvvvvvvv //
-
-var saveThisButton = document.querySelector('.save-poster');
-
-var showSavedButton = document.querySelector('.show-saved');
-
-var randomPosterButton = document.querySelector('.show-random');
-
-var makeOwnButton = document.querySelector('.show-form');
-
-// vvvvvvvvv Buttons for Create Your Own vvvvvvvvv //
-
-var showMyPosterButton = document.querySelector('make-poster');
-
-var takeMeBackButton = document.querySelector('.show-main');
-
-
-
-// vvvvvvvvv Buttons for Saved Posters vvvvvvvvv
-
-var backToMainButton = document.querySelector('.back-to-main');
-
-// vvvvvvvvv Homepage Elements vvvvvvvvv //
-
-var mainPosterArea = document.querySelector('.main-poster');
-
-var mainPosterImage = document.querySelector('.poster-image');
-
-var posterFormArea = document.querySelector('.poster-form');
-
-var savedPostersArea = document.querySelector('.saved-posters');
-
-var savedPostersGrid =document.querySelector ('.saved-posters-grid');
-
+//vvvvvvvvvv Inputs vvvvvvvvvv\\
 var imageInput = document.querySelector('#poster-image-url');
-
 var titleInput = document.querySelector('#poster-title');
-
 var quoteInput = document.querySelector('#poster-quote');
 
+//vvvvvvvvvv Mainpage Poster Breakdown vvvvvvvvvv\\
+var mainPosterPage = document.querySelector('.main-poster');
+var savedPostersPage = document.querySelector('.saved-posters');
+var makeYourOwnFormPage = document.querySelector('.poster-form');
 
-// we've provided you with some data to work with 👇
+//vvvvvvvvvv Saved Posters Grid vvvvvvvvvv\\
+var grid = document.querySelector('.saved-posters-grid');
+
+//vvvvvvvvvv ALL of the buttons vvvvvvvvvv\\
+var randomButton = document.querySelector('.show-random');
+var makeYourOwnButton = document.querySelector('.show-form');
+var takeMeBackButton = document.querySelector('.show-main');
+var showSavedPostersButton = document.querySelector('.show-saved');
+var backToMainButton = document.querySelector('.back-to-main');
+var showMyPosterButton = document.querySelector('.make-poster');
+showMyPosterButton.setAttribute('type', 'button');
+var savePosterButton = document.querySelector('.save-poster');
+
+/* we've provided you with some data to work with 👇
+                                  Thanks for the data.
+You guys-and-gals / dudes-and-prudes / fellas-and-bellas are swell.
+*/
+
 var images = [
   "./assets/bees.jpg",
   "./assets/bridge.jpg",
@@ -79,6 +66,7 @@ var titles = [
   "believe",
   "try",
   "conviction",
+  "wiggle",
   "accomplishment",
   "achievement",
   "ambition",
@@ -112,6 +100,7 @@ var quotes = [
   "Act as if what you do makes a difference. It does.",
   "Success is not final, failure is not fatal: it is the courage to continue that counts.",
   "Never bend your head. Always hold it high. Look the world straight in the eye.",
+  "A snake in the grass is worth two in the boot.",
   "What you get by achieving your goals is not as important as what you become by achieving your goals.",
   "Believe you can and you're halfway there.",
   "When you have a dream, you've got to grab it and never let go.",
@@ -146,66 +135,99 @@ var quotes = [
 ];
 
 var savedPosters = [];
-/*
-function makeYourOwn() {
-  getElementsByName('#form.png')
-};
-/*
-var newImage = imageInput.value;
-var newTitle = titleInput.value;
-var newQuote = quoteInput.value;
-
-};
-var currentImage = new Poster();
-var currentTitle = new Poster();
-var currentQuote = new Poster();
-*/
+var currentPoster;
 
 // event listeners go here 👇
-randomPosterButton.addEventListener('click', changePoster);
+window.addEventListener('load', setMain);
+randomButton.addEventListener('click', setMain);
+makeYourOwnButton.addEventListener('click', showMakeYourOwnForm);
+showSavedPostersButton.addEventListener('click', showSavedPosters);
+takeMeBackButton.addEventListener('click', takeMeBack);
+backToMainButton.addEventListener('click', backToMain);
+showMyPosterButton.addEventListener('click', makeCustomPoster);
+savePosterButton.addEventListener('click', addPosterToSaved);
 
-function changePoster() {
-  mainPosterArea.classList.add("hidden");
-  mainPosterArea.classList.remove("hidden");
+// vvvvvvvvvv Remove Image Event vvvvvvvvvv\\
+grid.addEventListener('dblclick', removePoster);
 
-};
-
-showSavedButton.addEventListener('click', showSaved);
-
-function showSaved() {
-  mainPosterArea.classList.add("hidden");
-  savedPostersGrid.classList.remove("hidden");
-};
-
-
-saveThisButton.addEventListener('click', saveThis);
-
-function saveThis() {
-mainPosterArea.classList.add("hidden");
-savedPostersArea.classList.remove("hidden");
-};
-
-makeOwnButton.addEventListener('click', makeOwn);
-
-
-function makeOwn() {
-  mainPosterArea.classList.add("hidden");
-  posterFormArea.classList.remove("hidden");
-};
-
-backToMainButton.addEventLister('click', changePoster);
 // functions and event handlers go here 👇
 // (we've provided one for you to get you started)!
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
-}
+};
 
-randomTitle.innerText = titles[getRandomIndex(titles)]
-randomQuote.innerText = quotes[getRandomIndex(quotes)]
-randomPoster.src = images[getRandomIndex(images)]
+function setMain() {
+  titleMain.innerText = titles[getRandomIndex(titles)];
+  quoteMain.innerText = quotes[getRandomIndex(quotes)];
+  imageMain.src = images[getRandomIndex(images)];
+};
 
-function changePoster(){
-  randomTitle.innerText = titles[getRandomIndex(titles)];
-  randomQuote.innerText = quotes[getRandomIndex(quotes)];
-  randomPoster.src = images[getRandomIndex(images)];
-}
+function showMakeYourOwnForm() {
+  mainPosterPage.classList.add('hidden');
+  makeYourOwnFormPage.classList.remove('hidden');
+};
+
+function showSavedPosters() {
+  mainPosterPage.classList.add('hidden');
+  savedPostersPage.classList.remove('hidden');
+  createGrid();
+};
+
+function takeMeBack() {
+  makeYourOwnFormPage.classList.add('hidden');
+  mainPosterPage.classList.remove('hidden');
+};
+
+function backToMain() {
+  savedPostersPage.classList.add('hidden');
+  mainPosterPage.classList.remove('hidden');
+};
+
+function makeCustomPoster() {
+  currentPoster = new Poster(imageInput.value, titleInput.value, quoteInput.value);
+  imageMain.src = imageInput.value;
+  titleMain.innerText = titleInput.value;
+  quoteMain.innerText = quoteInput.value;
+  images.push(imageInput.value);
+  titles.push(titleInput.value);
+  quotes.push(quoteInput.value);
+  takeMeBack();
+};
+
+function addPosterToSaved() {
+  currentPoster = new Poster(imageMain.src, titleMain.innerText, quoteMain.innerText);
+  if (!savedPosters.length) {
+    savedPosters.push(currentPoster);
+  }
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (savedPosters[i].imageURL === imageMain.src && savedPosters[i].title === titleMain.innerText && savedPosters[i].quote === quoteMain.innerText) {
+      return;
+    }
+  }
+  savedPosters.push(currentPoster);
+};
+
+function createGrid() {
+  grid.innerHTML = '';
+  for (var i = 0; i < savedPosters.length; i++) {
+      grid.innerHTML += `<article class="mini-poster" id="${savedPosters[i].id}">
+      <img src="${savedPosters[i].imageURL}" alt="Knees weak? Arms Heady?">
+      <h2>${savedPosters[i].title}</h2>
+      <h4>${savedPosters[i].quote}</h4>
+      </article>`;
+  }
+};
+
+//vvvvvvvvvv Function I found on StackOverFlow vvvvvvvvvv
+function removePoster() {
+  var targetID = parseInt(event.target.parentNode.id);
+  for (var i = 0; i < savedPosters.length; i++) {
+    if (targetID === savedPosters[i].id) {
+      event.target.parentNode.remove();
+      savedPosters.splice(i, 1);
+    }
+  }
+};
+// It had a couple more familiar parts than the one that called for back-tics, and I assumed it would be easy to breakdown.
+
+// Both functions turned our code into a real suss-pool
